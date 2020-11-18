@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import axios from 'axios';
+import Example from '../components/test'
 
 function Copyright() {
   return (
@@ -59,6 +60,12 @@ function submit(run,nombre,direccion,motivo,email){
 
 }
 
+
+function validationTexfields(run,nombre,direccion,motivo,email){
+    alert('chupa la que cuelga');
+}
+
+
 export default function SignIn() {
   const classes = useStyles();
 
@@ -67,6 +74,8 @@ export default function SignIn() {
   const [direccion, setDireccion] = useState('');
   const [motivo, setMotivo] = useState('');
   const [email, setEmail] = useState('');
+
+  
 
   return (
     <Container component="main" maxWidth="xs">
@@ -144,10 +153,11 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick={()=>console.log(run,nombre,direccion,motivo,email)}
+            onClick={()=>validationTexfields(run,nombre,direccion,motivo,email)}
           >
             Sign In
           </Button>
+          <Example/>
       </div>
       <Box mt={8}>
         <Copyright />
