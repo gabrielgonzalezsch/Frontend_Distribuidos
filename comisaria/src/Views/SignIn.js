@@ -10,7 +10,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import axios from 'axios';
-import Example from '../components/test'
+import rut from 'chilean-rut'
+import validator from 'email-validator'
 
 function Copyright() {
   return (
@@ -46,23 +47,34 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function submit(run,nombre,direccion,motivo,email){
-    const formPermiso ={
-        run:run,
-        nombre:nombre,
-        direccion:direccion,
-        motivo:motivo,
-        email:email
-    }
-
-    //axios.post('/createPermiso',formPermiso).then(res => {
-      //  console.log(res)
-    //})
-
+  var form ={
+      run: run,
+      nombre: nombre,
+      direccion: direccion,
+      motivo: motivo,
+      email: email,
+  }
+  axios.post('/createPermiso',form).then(res => {
+      alert(res.data.message);
+  })
+  .catch(function (error) {
+  if (error.response) {
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+  }
+  });
 }
 
 
 function validationTexfields(run,nombre,direccion,motivo,email){
-    alert('chupa la que cuelga');
+  if(!rut.validate(run)){
+    alert('Rut invalido');
+  }else if(!validator.validate(email)){
+    alert('Email invalido');
+  }else{
+    submit(run,nombre,direccion,motivo,email);
+  }
 }
 
 
@@ -75,7 +87,6 @@ export default function SignIn() {
   const [motivo, setMotivo] = useState('');
   const [email, setEmail] = useState('');
 
-  
 
   return (
     <Container component="main" maxWidth="xs">
@@ -85,7 +96,7 @@ export default function SignIn() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Comisaria Virtual
         </Typography>
           <TextField
             variant="outlined"
@@ -155,9 +166,8 @@ export default function SignIn() {
             className={classes.submit}
             onClick={()=>validationTexfields(run,nombre,direccion,motivo,email)}
           >
-            Sign In
+              Solicitar
           </Button>
-          <Example/>
       </div>
       <Box mt={8}>
         <Copyright />
