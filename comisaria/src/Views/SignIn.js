@@ -12,6 +12,7 @@ import Container from '@material-ui/core/Container';
 import axios from 'axios';
 import rut from 'chilean-rut'
 import validator from 'email-validator'
+import carab from '../Image/carab.jpg'
 
 function Copyright() {
   return (
@@ -92,7 +93,7 @@ export default function SignIn() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
+        <Avatar alt='Carablogo' src={carab} variant="rounded" className={classes.large}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
