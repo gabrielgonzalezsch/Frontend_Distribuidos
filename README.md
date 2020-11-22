@@ -1,14 +1,23 @@
+![](https://i.ibb.co/sCHRR2w/front.png)
+#### **Direccion** 
+http://142.93.127.0:3000/
+#### **Repositorio Back**
+https://github.com/gabrielgonzalezsch/Backend_Distribuidos
+#### **Repositorio Front**
+https://github.com/gabrielgonzalezsch/Frontend_Distribuidos
 
-##Definición de sistema distribuido
+
+
+## Definición de sistema distribuido
 
 Los sistemas de distribución pueden definirse como el flujo secuencial de procedimientos, sistemas y actividades que están diseñados y vinculados para facilitar y monitorear el movimiento de bienes y servicios desde la fuente hasta el consumidor. Siendo este una colección de computadores independientes, y que para el usuario parecen ser un solo sistema coherente.
 
-**Las ventajas que aporta este tipo de sistema son**
+Las ventajas que aporta este tipo de sistema son
 -  **Mejor tolerancia ante fallos:** Esta ventaja se relaciona con la forma en que se distribuyen los datos, haciendo uso de nodos encargados de almacenar y replicar la información del sistema, utilizando las la información duplicada para casos en que caiga uno de los nodos.
 - **Mayor velocidad y procesamiento distribuido:** El procesamiento de las consultas se subdividen entre todos los nodos del sistema, lo que permite una mejor eficacia e impide la sobrecarga individuales de los nodos.
 - **Escalabilidad:** En el caso de que se quiera mejorar el sistema, no es mandatorio mejorar la capacidad de procesamiento de los nodos, sino que es posible añadir un nuevo nodo al cluster con tal de cumplir el mismo objetivo.
 
-**Las Desventajas que aporta este tipo de sistema son:**
+Las Desventajas que aporta este tipo de sistema son:
 - **Requiere alta gestión y mantención:** ya que las computadoras en un sistema pueden ser de diferentes tipos y ejecutar versiones diferentes a nivel de SO y aplicaciones.
 - **Integridad de los datos y degradación de los servicios:** Se puede acceder al sistema desde diferentes computadoras, por lo que, el tráfico en la red, puede estar sujeto a escuchas indeseadas, como también a ataques informáticos.
 - **Son sistemas impredecibles:** Ya que pueden pueden cambiar rápidamente, el tiempo requerido para responder a una petición de usuario puede variar dramáticamente, de una petición a otra.
@@ -37,12 +46,12 @@ Vertical: Esto hace alusión a aumentar las capacidades que tienen los nodos, me
 Horizontal: Por otro lado, esta hace referencia a aumentar la cantidad de nodos de un sistema, con tal de potenciar la capacidad del todo.
 
 
-##Análisis de las características de un sistema distribuido.
+## Análisis de las características de un sistema distribuido.
 
 ### Disponibilidad
 En la actualidad, el sistema implementado no cuenta con mecanismos que den soporte a la tolerancia a fallos, tales como la réplica de nodos y base de datos, de igual manera, tampoco existen herramientas que permitan balancear la carga. Para sustentar lo anterior, es necesario agregar servidores con tal de subdividir la carga, agregando un servidor dedicado para el manejo de la base de datos, otro para front y back.
 
-###Transparencia
+### Transparencia
 - #### Acceso:  
 El uso de gestor de paquetes de node.js (npm), permite una fácil instalación en cuanto a las dependencias, y módulos necesarios para que funcione el sistema. Además, esta proporciona comandos que facilitan la inicialización.
 
@@ -81,14 +90,20 @@ Como el sistema se encuentra montado dentro de un Droplet de Digitalocean, es po
 
 Para analizar la capacidad de respuesta del servidor, se decidió utilizar la herramienta Artillery, la cual permite generar peticiones ficticias con tal de analizar el desempeño que tiene el sistema ante situaciones de carga. Para esto se generaron dos archivos de prueba, el primero trata de un request POST de un usuario ficticio, mientras que el segundo trata de una petición GET de los permisos que se encuentran en la base de datos. En ambos casos la duración es de 10 segundos, con una tasa de generación de 150 usuarios por segundo, los cual genera un total de 1500 usuarios ficticios por 10 segundos
 
-**POST**
+#### **POST**
 ![](https://i.ibb.co/TvKThD1/post.png)
+
 De las solicitudes, se desprenden los siguientes datos:
 - De las 1500 solicitudes, se completaron exitosamente 1495, fallando aproximadamente en 0.4% de los casos.
 - El tiempo promedio de respuesta fue de 3780.1 ms por solicitud, con una máxima de  39127.8 ms, y mínima 294.2 ms.
 
-**GET**
+#### **GET**
 ![](https://i.ibb.co/NVnVS0Q/get.png)
+
 De las solicitudes, se desprenden los siguientes datos:
 - De las 1500 solicitudes, se completaron exitosamente 1320, fallando aproximadamente en 12% de los casos.
 - El tiempo promedio de respuesta fue de 4874.8 ms por solicitud, con una máxima de 105406.3 ms y mínima de 301.3 ms
+
+
+
+
