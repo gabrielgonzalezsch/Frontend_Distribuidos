@@ -1,8 +1,13 @@
 
 ![](https://i.ibb.co/sCHRR2w/front.png)
 
-Direccion
+**Direccion**
 http://142.93.127.0:3000/
+**Repositorio Back**
+https://github.com/gabrielgonzalezsch/Backend_Distribuidos
+**Repositorio Front**
+https://github.com/gabrielgonzalezsch/Frontend_Distribuidos
+
 ##Definición de sistema distribuido
 
 Los sistemas de distribución pueden definirse como el flujo secuencial de procedimientos, sistemas y actividades que están diseñados y vinculados para facilitar y monitorear el movimiento de bienes y servicios desde la fuente hasta el consumidor. Siendo este una colección de computadores independientes, y que para el usuario parecen ser un solo sistema coherente.
