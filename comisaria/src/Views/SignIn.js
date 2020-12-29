@@ -83,7 +83,7 @@ function validationTexfields(run,nombre,direccion,motivo,email){
 export default function SignIn() {
   const classes = useStyles();
 
-  useEffect(() => axios.get('/permisos').then(res=>console.log(res.data.rows)));
+  //useEffect(() => axios.get('/permisos').then(res=>console.log(res.data.rows)));
  
   const [run, setRun] = useState('');
   const [nombre, setNombre] = useState('');
