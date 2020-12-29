@@ -1,4 +1,4 @@
-import React,{ useState } from 'react';
+import React,{ useState,useEffect } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -53,10 +53,11 @@ function submit(run,nombre,direccion,motivo,email){
       nombre: nombre,
       direccion: direccion,
       motivo: motivo,
-      email: email,
+      email: email
   }
   axios.post('/createPermiso',form).then(res => {
       alert(res.data.message);
+      console.log(res.data)
   })
   .catch(function (error) {
   if (error.response) {
@@ -82,6 +83,8 @@ function validationTexfields(run,nombre,direccion,motivo,email){
 export default function SignIn() {
   const classes = useStyles();
 
+  useEffect(() => axios.get('/permisos').then(res=>console.log(res.data.rows)));
+ 
   const [run, setRun] = useState('');
   const [nombre, setNombre] = useState('');
   const [direccion, setDireccion] = useState('');
