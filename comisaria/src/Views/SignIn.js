@@ -57,7 +57,6 @@ function submit(run,nombre,direccion,motivo,email){
   }
   axios.post('/createPermiso',form).then(res => {
       alert(res.data.message);
-      console.log(res.data)
   })
   .catch(function (error) {
   if (error.response) {

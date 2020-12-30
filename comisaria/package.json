@@ -2,7 +2,7 @@
   "name": "comisaria",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://35.243.155.184:9600",
+  "proxy": "http://35.229.81.164:6900",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
